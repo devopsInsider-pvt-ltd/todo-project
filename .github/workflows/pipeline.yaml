@@ -15,8 +15,7 @@ jobs:
     steps:
       - name: path
         run: pwd
-      - name: files
-        run: ls
+
 
 
 
