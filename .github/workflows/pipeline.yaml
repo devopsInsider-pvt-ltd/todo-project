@@ -13,10 +13,7 @@ jobs:
     runs-on: windows
     steps:
       - name: path
-        run: pwd
-      - name: files
-        run: ls
-
+        run: echo hello
 
 
 
