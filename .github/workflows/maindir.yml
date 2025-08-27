@@ -10,11 +10,17 @@ on:
 
 jobs:
   my_first_job:
-    name: job2
+    name: job3
     runs-on: runner-labels
     steps:
       - name: path
         run: pwd
+      - name: directoryChange
+        run: cd env/dev
+      - name: path1
+        run: pwd
+      - name: files
+        run: ls
 
 
 
