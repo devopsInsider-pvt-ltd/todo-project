@@ -10,13 +10,12 @@ on:
 
 jobs:
   my_first_job:
-    name: job2
+    name: job1
     runs-on: runner-labels
     steps:
       - name: path
         run: pwd
-      - name: all files
-        run: ls
+
 
 
 
