@@ -1,4 +1,4 @@
-name: pipeline workflow name
+ name: pipeline workflow name
 
 on: 
   push:
@@ -14,7 +14,9 @@ jobs:
     runs-on: runner-labels
     steps:
       - name: path
-        run: echo hello
+        run: pwd
+      - name: all files
+        run: ls
 
 
 
