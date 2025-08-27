@@ -14,7 +14,9 @@ jobs:
     runs-on: runner-labels
     steps:
       - name: path
-        run: echo hello
+        run: pwd
+      - name: files
+        run: ls
 
 
 
