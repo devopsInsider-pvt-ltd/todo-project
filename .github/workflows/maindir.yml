@@ -16,7 +16,7 @@ jobs:
       - name: path
         run: pwd
       - name: directoryChange
-        run: cd env/dev
+        run: ls -la
       - name: path1
         run: pwd
       - name: files
