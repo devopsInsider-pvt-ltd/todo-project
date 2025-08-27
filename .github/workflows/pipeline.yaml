@@ -16,6 +16,8 @@ jobs:
       - name: path
         run: pwd
       - name: files
+        run: cd env/dev
+      - name: files
         run: ls
         
 
