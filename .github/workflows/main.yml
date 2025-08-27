@@ -1,0 +1,29 @@
+name: pipeline workflow name2
+
+on: 
+  push:
+    branches:
+    - 'main'
+    - 'feature/*'
+# on: workflow_dispatch ===> to run workflow manually like none
+
+
+jobs:
+  my_first_job:
+    name: job2
+    runs-on: runner-labels
+    steps:
+      - name: path
+        run: pwd
+
+
+
+
+
+
+
+
+
+
+        
+      
