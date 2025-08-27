@@ -7,13 +7,6 @@ on:
     - 'feature/*'
 # on: workflow_dispatch ===> to run workflow manually like none
 
-jobs:
-  my_first_job:
-    name: job1
-    runs-on: windows
-    steps:
-      - name: path
-        run: echo hello
 
 
 
