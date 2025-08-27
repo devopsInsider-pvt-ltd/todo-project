@@ -11,7 +11,7 @@ on:
 jobs:
   my_first_job:
     name: job2
-    runs-on: windows
+    runs-on: runner-labels
     steps:
       - name: path
         run: echo hello
