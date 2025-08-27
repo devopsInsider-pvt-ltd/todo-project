@@ -1,0 +1,40 @@
+name: Terraform Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - feature/*
+  workflow_dispatch:   # manually bhi run kar sakta hai
+
+jobs:
+  terraform:
+    runs-on: runner-labels
+
+    steps:
+      # Step 1: Checkout repo
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      # Step 2: Setup Terraform
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.7.5   # jo version chahiye woh daal
+
+      # Step 3: Terraform Init
+      - name: Terraform Init
+        run: terraform init
+
+      # Step 4: Terraform Validate
+      - name: Terraform Validate
+        run: terraform validate
+
+      # Step 5: Terraform Plan
+      - name: Terraform Plan
+        run: terraform plan -out=tfplan
+
+      # Step 6: Terraform Apply (optional - manual approval ke liye alag job bana sakte ho)
+      - name: Terraform Apply
+        if: github.ref == 'refs/heads/main'   # sirf main branch par chalega
+        run: terraform apply -auto-approve tfplan
