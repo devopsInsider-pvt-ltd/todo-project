@@ -1,0 +1,14 @@
+name: pipeline2
+
+on: 
+  push:
+    branches:
+      - main
+      - feature/*
+
+jobs:
+  terraform:
+    runs-on: runner-labels
+
+    steps:
+      
