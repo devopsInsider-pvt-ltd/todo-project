@@ -11,4 +11,6 @@ jobs:
     runs-on: runner-labels
 
     steps:
+      name: list diresory
+      run: ls
       
