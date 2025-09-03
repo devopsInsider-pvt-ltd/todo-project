@@ -1,3 +1,16 @@
 name: "infra workflow"
 
+on: workflow_dispatch
+
+jobs:
+  terraform-job:
+    name: job1
+    runs-on: self-hosted
+    steps:
+    - name: path
+      run: pwd
+    - name: files
+      run: ls -l
+
+
 
