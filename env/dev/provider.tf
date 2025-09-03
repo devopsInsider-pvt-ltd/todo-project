@@ -1,7 +1,7 @@
 terraform {
     backend "azurerm" {
         resource_group_name = "sandystor-rg"
-        storage_account_name = "sandystora"
+        storage_account_name = "sandystora1"
         container_name = "blob"
         key = "dev.test26.tfstate"
     }
