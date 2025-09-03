@@ -32,6 +32,11 @@ jobs:
       working-directory: env/dev
       run: terraform init -input=false
 
+    - name: Terraform plan
+      id: plan
+      working-directory: env/dev
+      run: terraform plan
+
 
     
 
