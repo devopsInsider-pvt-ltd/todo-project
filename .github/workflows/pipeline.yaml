@@ -6,11 +6,15 @@ jobs:
   terraform-job:
     name: job1
     runs-on: self-hosted
+    
     steps:
     - name: path
       run: pwd
-    - name: files
-      run: ls -l
+    - name: Checkout
+      uses: actions/checkout@v5.0.0
+    - name: path
+      run: pwd
+
 
 
 
