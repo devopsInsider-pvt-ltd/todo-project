@@ -2,6 +2,10 @@ name: "infra-workflow-name"
 
 on: workflow_dispatch
 
+permissions:
+  contents: read
+  id-token: write
+  
 jobs:
   terraform-job:
     name: job1
