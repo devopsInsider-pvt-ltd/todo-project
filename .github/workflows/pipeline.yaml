@@ -1,74 +1,34 @@
-name: "infra-workflow-name"
+name: "infra-pipeline-name"
 
 on: workflow_dispatch
 
-permissions:
-  contents: read
+permissions: 
   id-token: write
-  
+  contents: read
+
 jobs:
-  terraform-init-plan-job:
-    name: init-plan-name
+  terraform-init-plan-job-id:
+    name: init-plan-job-name
     runs-on: self-hosted
-    
+
     steps:
     - name: Checkout
       uses: actions/checkout@v5.0.0
+      
     - name: Azure Login
       uses: Azure/login@v2.3.0
-      with:
-        client-id: 01633c86-9c38-4d47-a1c7-7c015b374c5a
-        tenant-id: ccd4b901-d365-42d8-96fb-875fdb2a1dae
-        subscription-id: 3bcdc0e9-b6e4-470c-86a7-c19f6b5069c8
-        
-    - name: Terraform fmt
-      id: fmt
-      run: terraform fmt
-      working-directory: env/dev
-      continue-on-error: true
-    
+      client-id: 01633c86-9c38-4d47-a1c7-7c015b374c5a
+      tenant-id: ccd4b901-d365-42d8-96fb-875fdb2a1dae
+      subscription-id: 3bcdc0e9-b6e4-470c-86a7-c19f6b5069c8
+
     - name: Terraform Init
       id: init
-      working-directory: env/dev
       run: terraform init -input=false
-
-    - name: Terraform plan
-      id: plan
       working-directory: env/dev
-      run: terraform plan
+      
 
-  terraform-apply-job:
-    name: apply
-    needs: terraform-init-plan-job
-    runs-on: self-hosted
-    environment: dev
-    
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v5.0.0
-    - name: Azure Login
-      uses: Azure/login@v2.3.0
-      with:
-        client-id: 01633c86-9c38-4d47-a1c7-7c015b374c5a
-        tenant-id: ccd4b901-d365-42d8-96fb-875fdb2a1dae
-        subscription-id: 3bcdc0e9-b6e4-470c-86a7-c19f6b5069c8
-        
-    - name: Terraform Init
-      id: init
-      working-directory: env/dev
-      run: terraform init -input=false
-
-    - name: Terraform apply
-      id: plan
-      working-directory: env/dev
-      run: terraform apply --auto-approve
     
 
-
-          
     
-
-
-
-
-
+    
+  
