@@ -31,6 +31,34 @@ jobs:
       working-directory: env/dev
       run: terraform plan
 
+  terraform-apply-job:
+    name: apply
+    runs-on: self-hosted
+    environment: dev
+
+    steps:
+    - name: checkout
+      uses: actions/checkout@v5.0.0
+
+    - name: Azure Login
+      uses: Azure/login@v2.3.0
+      with:
+        client-Id: 01633c86-9c38-4d47-a1c7-7c015b374c5a
+        tenant-Id: ccd4b901-d365-42d8-96fb-875fdb2a1dae
+        subscription-id: 3bcdc0e9-b6e4-470c-86a7-c19f6b5069c8
+
+    - name: terraform init
+      id: init
+      working-directory: env/dev
+      run: terraform init
+
+    - name: terraform apply
+      id: apply
+      working-directory: env/dev
+      run: terraform apply --auto-approve
+      
+
+    
 
 
 
