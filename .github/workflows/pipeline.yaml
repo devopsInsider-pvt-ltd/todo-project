@@ -35,6 +35,7 @@ jobs:
     name: apply
     runs-on: self-hosted
     environment: dev
+    needs: terraform-init-plan-job-id
 
     steps:
     - name: checkout
